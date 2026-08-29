@@ -1,0 +1,30 @@
+@use "../core/index" as *;
+
+.todo {
+  container-type: inline-size;
+  position: relative;;
+
+  max-width: rem(400);
+  min-width: rem(280);
+
+  width: 100%;
+  min-height: rem(600);
+  padding: var(--space-md);
+
+  background-color: var(--color-bg);
+  box-shadow: 0 20px 25px -10px rgba(0, 0, 0, 0.2);
+  border: 2px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+
+  &__title {
+    text-align: center;
+    text-transform: capitalize;
+    font-weight: var(--weight-medium);
+    font-size: clamp(var(--text-md), 10.5cqi, var(--text-lg));
+
+    margin-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--color-border);
+
+    transition: color var(--duration-xs) ease-out;
+  }
+}

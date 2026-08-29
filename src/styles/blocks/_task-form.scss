@@ -1,0 +1,114 @@
+@use "../core/index" as *;
+
+.task-form {
+  display: flex;
+  justify-content: space-between;
+  margin-block: var(--space-lg);
+  container-type: inline-size;
+
+  &__add-task {
+    display: flex;
+    column-gap: var(--space-sm);
+  }
+
+  &__input {
+    width: 70%;
+    min-height: rem(32);
+
+    container-type: inline-size;
+    color: var(--color-text-dark);
+    background-color: var(--color-bg);
+
+    outline: none;
+    border: 1px solid transparent;
+    border-bottom-color: var(--color-border);
+
+    transition: border var(--duration-xs) ease-out;
+
+    &:focus {
+      background-color: var(--color-input);
+    }
+
+    &:focus-visible {
+      outline: none !important;
+    }
+
+    &::placeholder {
+      color: var(--color-text-dark);
+      opacity: .5;
+    }
+
+    &.is-warning {
+      transition-duration: var(--duration-xs);
+      border: 1px solid var(--color-warning);
+    }
+
+    @include mobile {
+      width: 100%;
+    }
+  }
+
+  &__add {
+    @include flex-center;
+    cursor: pointer;
+
+    min-width: rem(36);
+    min-height: rem(32);
+    padding: var(--space-0);
+
+    border-radius: var(--border-radius-xs);
+    background-color: var(--color-primary);
+
+    @include hover {
+      background-color: var(--color-primary-dark);
+      transition-duration: var(--duration-xs);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  &__plus {
+    width: rem(24);
+    height: rem(24);
+    color: var(--color-text-dark);
+  }
+
+  &__delete-all {
+    display: flex;
+    align-items: flex-end;
+    cursor: pointer;
+    user-select: none;
+
+    font-weight: var(--weight-medium);
+    font-size: clamp(var(--text-sm), 6.5cqi, var(--text-lg));
+    text-transform: capitalize;
+    white-space: nowrap;
+
+    background-color: transparent;
+    color: var(--color-text-dark);
+    opacity: 0.2;
+
+    width: max-content;
+    padding: var(--space-0);
+
+    &:not(.is-disabled) {
+      opacity: 0.5;
+
+      @include hover {
+        color: var(--color-warning);
+        opacity: 1;
+      }
+
+      &:active {
+        transform: scale(0.95);
+      }
+    }
+  }
+
+  @include mobile {
+    flex-direction: column;
+    row-gap: var(--space-lg);
+  }
+}

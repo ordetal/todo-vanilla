@@ -1,0 +1,21 @@
+$mobile: 480px;
+
+@mixin mobile() {
+  @media (max-width: $mobile) {
+    @content;
+  }
+}
+
+@mixin hover() {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+  
+  @media (hover: none) {
+    &:active {
+      @content;
+    }
+  }
+}

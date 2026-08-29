@@ -1,0 +1,61 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable both-edges;
+
+  &.is-dark-theme {
+    --color-text-dark: var(--color-white);
+    --color-bg: var(--color-black-dark);
+    --color-bg-alt: var(--color-black);
+    --color-bg-hover: var(--color-black-light);
+    --color-border: var(--color-white-dark);
+    --color-input: var(--color-grey-dark);
+    --color-success: var(--color-green);
+    --color-delete: var(--color-red-light);
+    --color-delete-bg: var(--color-red-dark);
+  }
+}
+
+body {
+  position: relative;
+  overflow: hidden auto;
+
+  font-family: var(--font-family-base), sans-serif;
+  background-color: var(--color-bg-alt);
+  color: var(--color-text-dark);
+}
+
+h1,
+h2 {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  list-style: none;
+}
+
+button {
+  border: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+input {
+  border: none;
+}
+
+:focus-visible {
+  outline: 3px dashed var(--color-text-dark) !important;
+  outline-offset: 3px !important;
+}

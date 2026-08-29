@@ -1,0 +1,211 @@
+@use "../core/index" as *;
+
+.tasks {
+  container-type: inline-size;
+
+  &__title {
+    font-weight: var(--weight-medium);
+    font-size: clamp(var(--text-sm), 8cqi, var(--text-md));
+    text-transform: capitalize;
+
+    transition: color var(--duration-xs) ease-out;
+
+    &.is-warning {
+      @include shake(var(--duration-lg), ease-in);
+      color: var(--color-delete);
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: var(--space-sm);
+    padding-block: var(--space-lg);
+
+    container-type: inline-size;
+    user-select: none;
+  }
+
+  &__empty {
+    text-align: center;
+    font-weight: var(--weight-medium);
+    font-size: rem(24);
+
+    opacity: .5;
+    padding-block: var(--space-md);
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: var(--space-sm);
+
+    width: 100cqw;
+
+    min-height: rem(55);
+    max-height: rem(150);
+
+    padding: var(--space-xs);
+
+    user-select: none;
+    border: 2px solid var(--color-border);
+    border-radius: var(--border-radius-md);
+
+    transition: background-color var(--duration-xs) ease-out,
+    color var(--duration-xs) ease-out;
+
+    &.is-completed {
+      color: var(--color-text);
+      text-decoration-line: line-through;
+    }
+
+    &.is-dragging {
+      cursor: grabbing;
+      box-shadow: 0 20px 25px -10px rgba(0, 0, 0, 0.2);
+
+      pointer-events: none;
+      z-index: 1000;
+
+      .tasks__draggable {
+        color: var(--color-text-dark);
+      }
+    }
+
+    &.is-clone {
+      opacity: .5;
+      outline: 3px dashed var(--color-border);
+      border-color: transparent;
+    }
+
+    &.is-animated {
+      @include bounce-in(var(--duration-md), ease-in-out);
+    }
+
+    &.is-hovered {
+      transform: scale(1.01);
+      transition: transform var(--duration-xs) ease-in-out;
+
+      background-color: var(--color-bg-hover);
+      box-shadow: 0 20px 25px -10px rgba(0, 0, 0, 0.2);
+      color: var(--color-text);
+    }
+  }
+
+  &__complete {
+    -webkit-tap-highlight-color: transparent;
+
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  &__checkbox {
+    appearance: none;
+
+    &:checked ~ .tasks__checkmark .tasks__checkmark-svg {
+      transform: scale(1.1);
+    }
+
+    &:focus-visible + .tasks__checkmark {
+      box-shadow: 0 0 7px var(--color-success);
+    }
+
+    &:focus-visible {
+      outline: none !important;
+    }
+  }
+
+  &__checkmark {
+    -webkit-tap-highlight-color: transparent;
+
+    display: flex;
+    flex-shrink: 0;
+    margin-inline: var(--space-xs) var(--space-md);
+
+    width: rem(28);
+    height: rem(28);
+
+    border: 2px solid var(--color-border);
+    border-radius: var(--border-radius-circle);
+
+    @include hover {
+      transition: box-shadow var(--duration-xs) ease-in,
+      border-color var(--duration-xs) ease-in;
+      box-shadow: 0 0 7px var(--color-success);
+      border-color: transparent;
+    }
+
+    &-svg {
+      width: rem(24);
+      height: rem(24);
+
+      color: var(--color-success);
+
+      transform: scale(0);
+      transition: var(--duration-xs) ease-in;
+    }
+  }
+
+  &__text {
+    flex-grow: 1;
+
+    font-size: rem(16);
+    overflow-wrap: anywhere;
+
+    @include hover {
+      color: var(--color-text);
+    }
+  }
+
+  &__actions {
+    @include flex-center;
+  }
+
+  &__draggable {
+    cursor: grab;
+
+    width: rem(42);
+    height: rem(42);
+
+    touch-action: none;
+    user-select: none;
+
+    color: var(--color-grey);
+
+    @include hover {
+      transition-duration: var(--duration-xs);
+      transform: scale(1.05);
+      color: var(--color-text-dark);
+    }
+  }
+
+  &__delete {
+    display: flex;
+    cursor: pointer;
+
+    background-color: transparent;
+    padding: var(--space-0);
+  }
+
+  &__cross {
+    width: rem(30);
+    height: rem(30);
+    color: var(--color-delete);
+
+    @include hover {
+      transition: background-color var(--duration-xs) ease-out;
+      border-radius: var(--border-radius-sm);
+      background-color: var(--color-delete-bg);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+
+    @include mobile {
+      width: rem(32);
+      height: rem(32);
+    }
+  }
+}

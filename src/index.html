@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description"
+        content="Comfortable to-do list for your tasks. Add up to 100 tasks and drag them to reorder. Mark tasks as done and delete old ones. Also, switch between light and dark themes.">
+
+  <meta property="og:title" content="To-Do List">
+  <meta property="og:description" content="To-do list for your tasks.">
+  <meta property="og:url" content="https://todo-ordetal.vercel.app">
+  <meta property="og:type" content="website">
+
+  <title>To-Do List</title>
+
+  <link rel="stylesheet" href="styles/style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+<div class="wrapper">
+  <main class="todo" data-js-todo>
+    <h1 class="todo__title">To-do list</h1>
+
+    <button type="button" class="theme-switcher" data-js-theme-switcher-btn>
+      <svg
+        width="24"
+        height="24"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+        class="theme-switcher__svg theme-switcher__svg--sun"
+        data-js-theme-switcher-svg-sun
+        aria-hidden="true"
+      >
+        <path
+          d="M12 17.01c2.76 0 5.01-2.25 5.01-5.01S14.76 6.99 12 6.99 6.99 9.24 6.99 12s2.25 5.01 5.01 5.01M12 9c1.66 0 3.01 1.35 3.01 3.01s-1.35 3.01-3.01 3.01-3.01-1.35-3.01-3.01S10.34 9 12 9m1 10h-2v3h2zm0-17h-2v3h2zM2 11h3v2H2zm17 0h3v2h-3zM4.22 18.36l.71.71.71.71 1.06-1.06 1.06-1.06-.71-.71-.71-.71-1.06 1.06zM19.78 5.64l-.71-.71-.71-.71-1.06 1.06-1.06 1.06.71.71.71.71 1.06-1.06zm-12.02.7L6.7 5.28 5.64 4.22l-.71.71-.71.71L5.28 6.7l1.06 1.06.71-.71zm8.48 11.32 1.06 1.06 1.06 1.06.71-.71.71-.71-1.06-1.06-1.06-1.06-.71.71z"></path>
+      </svg>
+
+      <svg
+        width="24"
+        height="24"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+        class="theme-switcher__svg theme-switcher__svg--moon is-hidden"
+        data-js-theme-switcher-svg-moon
+        aria-hidden="true"
+      >
+        <path
+          d="M12.2 22c4.53 0 8.45-2.91 9.76-7.24.11-.35.01-.74-.25-1s-.64-.36-1-.25c-.78.23-1.58.35-2.38.35-4.52 0-8.2-3.68-8.2-8.2 0-.8.12-1.6.35-2.38a1.002 1.002 0 0 0-1.25-1.25A10.17 10.17 0 0 0 2 11.8C2 17.42 6.58 22 12.2 22"></path>
+      </svg>
+    </button>
+
+    <form action="#" class="task-form" data-js-task-from>
+      <div class="task-form__add-task">
+        <input
+          type="text"
+          name="userTask"
+          placeholder="Write a new task"
+          class="task-form__input"
+          aria-label="New task"
+          autocomplete="off"
+          maxlength="40"
+          data-js-task-form-input
+        >
+
+        <button type="submit" class="task-form__add" data-js-task-form-btn-add aria-label="Add task">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            class="task-form__plus"
+            aria-hidden="true"
+          >
+            <path d="M3 13h8v8h2v-8h8v-2h-8V3h-2v8H3z"></path>
+          </svg>
+        </button>
+      </div>
+
+      <button type="button" class="task-form__delete-all" data-js-task-form-btn-delete-all>
+        Delete all
+      </button>
+    </form>
+
+    <section class="tasks">
+      <h2 class="tasks__title" data-js-tasks-title>
+        Total tasks: <span class="tasks__count" data-js-tasks-count>0</span>
+      </h2>
+
+      <ul class="tasks__list" data-js-tasks-list></ul>
+
+      <p class="tasks__empty" data-js-tasks-empty>There are no tasks</p>
+    </section>
+  </main>
+</div>
+
+<div class="toast-container" data-js-toast-container></div>
+</body>
+</html>

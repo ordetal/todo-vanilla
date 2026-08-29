@@ -1,0 +1,11 @@
+@use "index" as *;
+
+.wrapper {
+  @include flex-center;
+  min-height: 100vh;
+  padding: var(--space-md);
+}
+
+.is-hidden {
+  display: none !important;
+}

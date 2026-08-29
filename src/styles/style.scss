@@ -1,0 +1,14 @@
+@use "core/normalize";
+@use "core/variables";
+@use "core/functions";
+@use "core/mixins";
+@use "core/media";
+@use "core/fonts";
+@use "core/utils";
+@use "core/globals";
+
+@use "blocks/toast-container";
+@use "blocks/todo";
+@use "blocks/task-form";
+@use "blocks/tasks";
+@use "blocks/theme";

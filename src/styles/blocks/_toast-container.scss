@@ -1,0 +1,41 @@
+@use "../core/index" as *;
+
+.toast-container {
+  pointer-events: none;
+  user-select: none;
+
+  &__toast {
+    @include fade-in(var(--duration-md), ease-in-out);
+    @include flex-center;
+    @include center-x;
+
+    transition: bottom var(--duration-sm) ease;
+    z-index: 9999;
+    bottom: 10%;
+
+    border-radius: var(--border-radius-md);
+    color: var(--color-text-dark);
+
+    font-size: var(--text-xs);
+    white-space: nowrap;
+
+    min-width: rem(90);
+    min-height: rem(25);
+    padding-inline: var(--space-md);
+
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.15);
+
+    &.is-info {
+      background-color: var(--color-primary);
+    }
+
+    &.is-warning {
+      background-color: var(--color-warning);
+      color: var(--color-text-light);
+    }
+
+    &.is-animated {
+      @include fade-out(var(--duration-md), ease-in-out, $fill-mode: forwards)
+    }
+  }
+}

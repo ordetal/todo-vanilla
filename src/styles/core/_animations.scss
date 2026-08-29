@@ -1,0 +1,105 @@
+$default-duration: .2s;
+$default-timing: ease;
+$default-delay: 0s;
+$default-iteration: 1;
+$default-fill: none;
+
+@mixin animate(
+  $name,
+  $duration: $default-duration,
+  $timing-function: $default-timing,
+  $delay: $default-delay,
+  $iteration-count: $default-iteration,
+  $fill-mode: $default-fill) {
+
+  animation: $name $duration $timing-function $delay $iteration-count $fill-mode;
+}
+
+@mixin fade-in($args...) {
+  @include animate(fade-in, $args...);
+}
+
+@mixin fade-out($args...) {
+  @include animate(fade-out, $args...);
+}
+
+@mixin bounce-in($args...) {
+  @include animate(bounce-in, $args...);
+}
+
+@mixin shake($args...) {
+  @include animate(shake, $args...);
+}
+
+@mixin rotate-sun($args...) {
+  @include animate(rotate-sun, $args...);
+}
+
+@mixin rotate-moon($args...) {
+  @include animate(rotate-moon, $args...);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes bounce-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  70% {
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translateX(-0.5px);
+  }
+  20%, 80% {
+    transform: translateX(1px);
+  }
+  30%, 50%, 70% {
+    transform: translateX(-2px);
+  }
+  40%, 60% {
+    transform: translateX(2px);
+  }
+}
+
+@keyframes rotate-sun {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-90deg);
+  }
+}
+
+@keyframes rotate-moon {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(90deg);
+  }
+}

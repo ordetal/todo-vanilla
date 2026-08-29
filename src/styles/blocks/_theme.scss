@@ -1,0 +1,45 @@
+@use "../core/index" as *;
+
+.theme-switcher {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  margin-top: var(--space-sm);
+  margin-right: var(--space-sm);
+  padding: var(--space-0);
+
+  background-color: var(--color-bg);
+  color: var(--color-text-dark);
+
+  width: rem(40);
+  height: rem(40);
+
+  &__svg {
+    cursor: pointer;
+
+    width: rem(32);
+    height: rem(32);
+    color: var(--color-grey);
+
+    @include hover {
+      color: var(--color-text-dark);
+      transition-duration: var(--duration-xs);
+    }
+
+    &--sun {
+      &.is-animated {
+        @include rotate-sun($timing-function: ease-out);
+        color: var(--color-text-dark);
+      }
+    }
+
+    &--moon {
+      &.is-animated {
+        @include rotate-moon($timing-function: ease-out);
+        color: var(--color-text-dark);
+      }
+    }
+  }
+}
+
