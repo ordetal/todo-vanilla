@@ -1,0 +1,28 @@
+{
+  "name": "todo-vanilla",
+  "version": "1.0.0",
+  "description": "Мой личный проект \"To-Do List\" (с англ. \"Список дел\") на чистом JavaScript. Сайт полностью адаптивный и с различными анимациями.",
+  "homepage": "https://github.com/ordetal/todo-vanilla#readme",
+  "bugs": {
+    "url": "https://github.com/ordetal/todo-vanilla/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ordetal/todo-vanilla.git"
+  },
+  "license": "MIT",
+  "author": "ordetal",
+  "type": "module",
+  "scripts": {
+    "sass-watch": "sass --watch ."
+  },
+  "keywords": [
+    "todo-list",
+    "vanilla-javascript",
+    "drag-and-drop",
+    "sass"
+  ],
+  "devDependencies": {
+    "sass": "^1.104.1"
+  }
+}
