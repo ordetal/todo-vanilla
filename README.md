@@ -22,7 +22,7 @@
 Ниже представлена структура сайта, и все указанные пути в файлах используют её.
 
 ```
-todo-list/
+todo-vanilla/
 ├── src/
 │   ├── fonts/
 │   ├── styles/
@@ -31,10 +31,16 @@ todo-list/
 │   │   ├── style.scss
 │   │   ├── style.css
 │   │   └── style.css.map  
-│   ├── index.html
-│   └── script.js
+│   ├── scripts/
+│   │   ├── components/
+│   │   ├── constants/
+│   │   ├── utils/
+│   │   └── main.js
+│   └── index.html
 ├── .gitignore
 ├── LICENSE
+├── package.json
+├── package-lock.json
 └── README.md
 ```
 
@@ -49,17 +55,20 @@ todo-list/
 - 💬 Toast-уведомления
 - 🔢 Счетчик количества задач
 - 🌗 Переключение темы
-- 💾 Сохранение всех данных в localStorage
-
+- ⚙️ Фильтрация задач
+- 💾 Сохранение данных в localStorage
 
 ## 🔑 Как запустить
 
 Сохраните проект с помощью команды `git clone https://github.com/ordetal/todo-vanilla.git` (или любым другим известным
-вам способом) и откройте файл ***`src/index.html`***.
+вам способом) и воспользуйтесь расширением в VS Code **"Live Server"**, либо любым другим локальным сервером.
 
-## Как работать
+## 🚀 Как работать
 
-Для того чтобы **scss** скомпилировался в **css**, я использовал расширение в VS Code **"Live Sass Compiler"**, Вы же можете использовать любой другой удобный для вас инструмент сборки.
+Для того чтобы **scss** скомпилировался в **css**:  
+`npm install`  
+`npm run sass-watch`  
+Либо же расширение в VS Code **"Live Sass Compiler"**, либо же любой другой удобный для вас инструмент сборки.
 
 ## 👤 Автор
 
