@@ -3,6 +3,34 @@
 .tasks {
   container-type: inline-size;
 
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    column-gap: var(--space-xs);
+  }
+
+  &__select {
+    cursor: pointer;
+
+    height: rem(35);
+    padding-inline: var(--space-xs);
+    font-size: var(--text-xs);
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-sm);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.16);
+    background-color: var(--colog-bg);
+    color: var(--color-text-dark);
+
+    &:focus {
+      background-color: var(--color-bg-hover);
+    }
+
+    &:focus-visible {
+      outline: none !important;
+    }
+  }
+
   &__title {
     font-weight: var(--weight-medium);
     font-size: clamp(var(--text-sm), 8cqi, var(--text-md));
@@ -26,15 +54,6 @@
     user-select: none;
   }
 
-  &__empty {
-    text-align: center;
-    font-weight: var(--weight-medium);
-    font-size: rem(24);
-
-    opacity: .5;
-    padding-block: var(--space-md);
-  }
-
   &__item {
     display: flex;
     align-items: center;
@@ -53,7 +72,7 @@
     border-radius: var(--border-radius-md);
 
     transition: background-color var(--duration-xs) ease-out,
-    color var(--duration-xs) ease-out;
+      color var(--duration-xs) ease-out;
 
     &.is-completed {
       color: var(--color-text);
@@ -131,7 +150,7 @@
 
     @include hover {
       transition: box-shadow var(--duration-xs) ease-in,
-      border-color var(--duration-xs) ease-in;
+        border-color var(--duration-xs) ease-in;
       box-shadow: 0 0 7px var(--color-success);
       border-color: transparent;
     }
@@ -207,5 +226,16 @@
       width: rem(32);
       height: rem(32);
     }
+  }
+
+  &__message {
+    @include fade-in(var(--duration-xs), ease-in-out);
+
+    text-align: center;
+    font-weight: var(--weight-medium);
+    font-size: rem(24);
+
+    padding-block: var(--space-md);
+    color: var(--color-text);
   }
 }

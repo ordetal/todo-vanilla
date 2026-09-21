@@ -16,7 +16,7 @@
   <title>To-Do List</title>
 
   <link rel="stylesheet" href="styles/style.css">
-  <script defer src="script.js"></script>
+  <script src="./scripts/main.js" type="module"></script>
 </head>
 <body>
 <div class="wrapper">
@@ -87,13 +87,59 @@
     </form>
 
     <section class="tasks">
-      <h2 class="tasks__title" data-js-tasks-title>
-        Total tasks: <span class="tasks__count" data-js-tasks-count>0</span>
-      </h2>
+      <div class="tasks__info">
+        <h2 class="tasks__title" data-js-tasks-title>
+          Total tasks: <span class="tasks__count" data-js-tasks-count>0</span>
+        </h2>
 
-      <ul class="tasks__list" data-js-tasks-list></ul>
+        <label for="tasks-filter"></label>
+        <select name="tasksFilter" id="tasks-filter" class="tasks__select" data-js-tasks-filter>
+          <option value="all" selected>All</option>
+          <option value="active">Active</option>
+          <option value="completed">Completed</option>
+        </select>
+      </div>
 
-      <p class="tasks__empty" data-js-tasks-empty>There are no tasks</p>
+      <ul class="tasks__list" data-js-tasks-list>
+        <template data-js-task-template>
+          <li class="tasks__item" data-js-task-item data-js-task-item-id>
+            <label class="tasks__complete">
+              <input type="checkbox" name="taskComplete" class="tasks__checkbox" data-js-tasks-complete>
+              <span class="tasks__checkmark">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"
+                 class="tasks__checkmark-svg" aria-hidden="true">
+              <path
+                d="M9 15.59 4.71 11.3 3.3 12.71l5 5c.2.2.45.29.71.29s.51-.1.71-.29l11-11-1.41-1.41L9.02 15.59Z"></path>
+            </svg>
+          </span>
+
+              <span class="tasks__text" data-js-task-text></span>
+            </label>
+
+            <div class="tasks__actions">
+              <button type="button" class="tasks__delete" data-js-task-btn-delete aria-label="Delete task">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"
+                     class="tasks__cross" aria-hidden="true">
+                  <path
+                    d="m7.76 14.83-2.83 2.83 1.41 1.41 2.83-2.83 2.12-2.12.71-.71.71.71 1.41 1.42 3.54 3.53 1.41-1.41-3.53-3.54-1.42-1.41-.71-.71 5.66-5.66-1.41-1.41L12 10.59 6.34 4.93 4.93 6.34 10.59 12l-.71.71z"></path>
+                </svg>
+              </button>
+
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24" fill="currentColor"
+                   class="tasks__draggable" data-js-task-draggable aria-hidden="true">
+                <circle cx="92" cy="60" r="20"/>
+                <circle cx="164" cy="60" r="16"/>
+                <circle cx="92" cy="128" r="16"/>
+                <circle cx="164" cy="128" r="20"/>
+                <circle cx="92" cy="196" r="20"/>
+                <circle cx="164" cy="196" r="16"/>
+              </svg>
+            </div>
+          </li>
+        </template>
+      </ul>
+
+      <p class="tasks__message is-hidden" data-js-tasks-message>There are no tasks</p>
     </section>
   </main>
 </div>

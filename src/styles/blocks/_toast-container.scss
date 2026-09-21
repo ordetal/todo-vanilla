@@ -35,7 +35,7 @@
     }
 
     &.is-animated {
-      @include fade-out(var(--duration-md), ease-in-out, $fill-mode: forwards)
+      @include fade-out(var(--duration-md), ease-in-out, $fill-mode: forwards);
     }
   }
 }
