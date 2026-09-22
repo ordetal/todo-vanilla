@@ -72,7 +72,7 @@ class Toast {
       this.toastContainerElement.innerHTML = "";
       this.toastContainerElement.append(this.toastCurrElement);
 
-      if (!handleRemove) {
+      if (handleRemove) {
         this.toastCurrElement.addEventListener(CUSTOM_EVENTS.TOAST_REMOVE, handleRemove, { once: true });
       }
     }
