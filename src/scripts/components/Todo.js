@@ -3,7 +3,6 @@ import { taskStorage, rootElements, todoElements, autoDismissClass, showToast } 
 
 class Todo {
   selectors = {
-    taskForm: "[data-js-task-form]",
     taskFormInput: "[data-js-task-form-input]",
     taskFormBtnAdd: "[data-js-task-form-btn-add]",
     taskFormBtnDeleteAll: "[data-js-task-form-btn-delete-all]",
